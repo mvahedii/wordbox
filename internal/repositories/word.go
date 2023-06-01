@@ -6,5 +6,5 @@ import (
 )
 
 type WordRepository interface {
-	Create(ctx context.Context, word models.Word)
+	Create(ctx context.Context, word *models.Word) error
 }
