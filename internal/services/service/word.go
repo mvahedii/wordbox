@@ -8,7 +8,7 @@ import (
 	"github.com/mvahedii/wordbox/internal/services/dto"
 )
 
-type PackageService struct {
+type WordService struct {
 	wr repositories.WordRepository
 }
 
@@ -30,13 +30,13 @@ func fromDto(w *dto.Word) *models.Word {
 	}
 }
 
-func NewPackageService(r repositories.WordRepository) *PackageService {
-	return &PackageService{
+func NewWordService(r repositories.WordRepository) *WordService {
+	return &WordService{
 		wr: r,
 	}
 }
 
-func (repo *PackageService) Create(ctx context.Context, wordDTO *dto.Word) error {
+func (repo *WordService) Create(ctx context.Context, wordDTO *dto.Word) error {
 	w := fromDto(wordDTO)
 	err := repo.wr.Create(ctx, w)
 	if err != nil {
